@@ -6,11 +6,14 @@
     <title>Park Ville</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="bg-secondary bg-opacity-25">
+    {% block navs %}
+      {% include 'includes/navs.html'   %}
+    {% endblock %}
     
-    {% include 'includes/navs.html'   %}
-    <div>
+    <div class="container mt-5">
     {% block content %}
+    
         
     {% endblock %}
     </div>

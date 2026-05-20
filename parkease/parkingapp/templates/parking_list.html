@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Parking List
+{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'parking_reg' %}" class="btn btn-warning mb-3">Register</a>
+    
+<table class=" table table-bordered table-striped ">
+    <thead>
+        <tr>
+            <th>Driver Name</th>
+            <th>Phone Number</th>
+            <th>NIN</th>
+            <th>Vehicle Type</th>
+            <th>Color</th>
+            <th>Arrival Time</th>
+            <th>Parking Charges</th>
+            <th>Actions</th>
+        </tr>
+        <tbody>
+            {% for parking in parkings %}
+             <tr>
+            <td>{{ parking.driver_name }}</td>
+            <td>{{ parking.phone_number }}</td>
+            <td>{{ parking.nin }}</td>
+            <td>{{ parking.vehicle_type }}</td>
+            <td>{{ parking.color }}</td>
+            <td>{{ parking.arrival_time |date:"Y-m-d"}}</td>
+            <td>{{ parking.parking_charges }}</td>
+            <td>
+                <a href="{% url 'edit_parking_reg' parking.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'delete_parking_reg' parking.id %}" class="btn btn-danger">Delete</a>
+                
+            </td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </thead>
+</table>
+
+{% endblock %}
