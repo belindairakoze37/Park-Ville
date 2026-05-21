@@ -11,6 +11,6 @@ class VehicleForm(forms.ModelForm):
     "number_plate", 
     "vehicle_model", 
     "color",
-    "parking_charge"
+    
 ]
 

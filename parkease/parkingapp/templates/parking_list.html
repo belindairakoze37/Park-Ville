@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 {% block title %}
     Parking List
 {% endblock %}
@@ -28,8 +28,8 @@
             <td>{{ parking.nin }}</td>
             <td>{{ parking.vehicle_type }}</td>
             <td>{{ parking.color }}</td>
-            <td>{{ parking.arrival_time |date:"Y-m-d"}}</td>
-            <td>{{ parking.parking_charges }}</td>
+            <td>{{ parking.arrival_time }}</td>
+            <td>{{ parking.parking_charge |floatformat:0 |intcomma }}</td>
             <td>
                 <a href="{% url 'edit_parking_reg' parking.id %}" class="btn btn-primary">Edit</a>
                 <a href="{% url 'delete_parking_reg' parking.id %}" class="btn btn-danger">Delete</a>

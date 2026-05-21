@@ -15,7 +15,11 @@ def parking_reg(request):
     if request.method == 'POST':
         form = VehicleForm(request.POST)
         if form.is_valid():
-            form.save()
+            vehicle = form.save(commit=False)
+            vehicle.save()
+            vehicle.parking_charge = vehicle.calculate_parking_charge()
+            vehicle.save()
+            
             return redirect('parking_list')
     else:
         form = VehicleForm()
